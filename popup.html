@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Search Helper</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Job Search Helper</h1>
+    <p>Manage hidden job listings.</p>
+    <div id="stats">
+      <p id="hiddenCount">Hidden jobs: 0</p>
+      <p id="siteName" style="font-size: 12px; color: #666; margin-top: 4px;"></p>
+    </div>
+    <button id="unhideAllButton">Temporarily Show All Hidden Jobs</button>
+    <button id="rehideAllButton" style="display: none;">Re-hide All Jobs</button>
+    <button id="clearStorageButton" style="margin-top: 12px; background-color: #e74c3c; color: white;">Clear Storage</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

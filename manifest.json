@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Job Search Helper",
+  "version": "1.0.0",
+  "description": "Add hide buttons to individual job listings on Indeed and Stepstone.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.indeed.com/*",
+    "*://*.stepstone.com/*",
+    "*://*.stepstone.de/*",
+    "*://*.stepstone.fr/*",
+    "*://*.stepstone.nl/*",
+    "*://*.linkedin.com/*",
+    "*://*.arbeitsagentur.de/*",
+    "*://*.jobboerse.arbeitsagentur.de/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.indeed.com/*"],
+      "js": ["content-helpers.js", "indeed.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://*.stepstone.com/*",
+        "*://*.stepstone.de/*",
+        "*://*.stepstone.fr/*",
+        "*://*.stepstone.nl/*"
+      ],
+      "js": ["content-helpers.js", "stepstone.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["*://*.linkedin.com/*"],
+      "js": ["content-helpers.js", "linkedin.js"],
+      "run_at": "document_idle"
+    }
+    ,
+    {
+      "matches": ["*://*.arbeitsagentur.de/*", "*://*.jobboerse.arbeitsagentur.de/*"],
+      "js": ["content-helpers.js", "arbeitsagentur.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
